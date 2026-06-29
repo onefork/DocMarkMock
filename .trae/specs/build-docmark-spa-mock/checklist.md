@@ -1,22 +1,22 @@
 # Checklist
 
-- [ ] `index.html` 为单入口，引入全部 CDN 与 `src/main.js`，浏览器直接打开无构建步骤即可运行
-- [ ] 全局样式包含设计稿 `colors_and_type.css` 的全部 CSS 变量与排版类，色彩/圆角/字体/间距/阴影与设计稿一致
-- [ ] Hash 路由注册 auth/dashboard/upload/editor/export 五个视图，未登录访问受保护路由会跳转 auth
-- [ ] 视口 ≥1024px 渲染 240px 侧边栏外壳，<1024px 渲染底部 5 项 Tab 外壳，auth 不渲染外壳
-- [ ] 断点变化时外壳与页面组件正确重渲染，移动端触摸目标 ≥44px 且含 safe-area padding
-- [ ] 登录/注册 Tab 切换、密码可见性切换、4 段密码强度条与标签均按设计稿工作
-- [ ] 提交登录（任意非空邮箱+密码）后进入 dashboard 并标记登录态；社交登录按钮可登录
-- [ ] 仪表盘 KPI 三项来自内存 store，PC 表格视图与移动端卡片视图均正确渲染
-- [ ] 表格/卡片视图切换、搜索过滤、行内编辑/下载/删除/重试操作均生效并刷新列表
-- [ ] 上传视图支持拖放与点击选择，文件队列可增删，显示图标/名称/大小/状态
-- [ ] 「开始转换」调用模拟 OCR 服务，进度条推进，完成后写入 store 并跳转 editor
-- [ ] `ocrService.recognize(file)` 返回 Promise，1.5–3s 延迟后 resolve `{ markdown, text, pageCount, metadata }`
-- [ ] PC 编辑器 50/50 分屏（源码+行号/预览），移动端编辑/预览 Tab + 浮动底部工具栏
-- [ ] Markdown 编辑后预览实时重新渲染，字数统计与保存状态更新，工具栏可插入语法
-- [ ] 导出视图提供 8 种格式卡片单选（Markdown/HTML/纯文本/DOCX/EPUB/普通 PDF/可搜索扫描 PDF/ClearScan）与导出方式单选、文件名输入
-- [ ] Markdown/HTML/纯文本/DOCX/普通 PDF 为前端真实生成的可下载文件；EPUB/可搜索扫描 PDF/ClearScan 为占位产物并标注「模拟产物」
-- [ ] 确认导出能触发下载或复制到剪贴板，移动端为底部固定全宽 CTA
-- [ ] 静态卡片/表格/面板仅用边框无阴影，弹窗/抽屉/Toast 浮层阴影 alpha ≤0.08
-- [ ] auth→dashboard→upload→editor→export 全流程可跑通，返回/登出/重试路径正确
-- [ ] 本地静态服务器自检：无控制台报错，Lucide 图标正常渲染
+- [x] `index.html` 为单入口，引入全部 CDN 与 `src/main.js`，浏览器直接打开无构建步骤即可运行
+- [x] 全局样式包含设计稿 `colors_and_type.css` 的全部 CSS 变量与排版类，色彩/圆角/字体/间距/阴影与设计稿一致
+- [x] Hash 路由注册 auth/dashboard/upload/editor/export 五个视图，未登录访问受保护路由会跳转 auth
+- [x] 视口 ≥1024px 渲染 240px 侧边栏外壳，<1024px 渲染底部 5 项 Tab 外壳，auth 不渲染外壳
+- [x] 断点变化时外壳与页面组件正确重渲染，移动端触摸目标 ≥44px 且含 safe-area padding
+- [x] 登录/注册 Tab 切换、密码可见性切换、4 段密码强度条与标签均按设计稿工作
+- [x] 提交登录（任意非空邮箱+密码）后进入 dashboard 并标记登录态；社交登录按钮可登录
+- [x] 仪表盘 KPI 三项来自内存 store，PC 表格视图与移动端卡片视图均正确渲染
+- [x] 表格/卡片视图切换、搜索过滤、行内编辑/下载/删除/重试操作均生效并刷新列表
+- [x] 上传视图支持拖放与点击选择，文件队列可增删，显示图标/名称/大小/状态
+- [x] 「开始转换」调用模拟 OCR 服务，进度条推进，完成后写入 store 并跳转 editor
+- [x] `ocrService.recognize(file)` 返回 Promise，1.5–3s 延迟后 resolve `{ markdown, text, pageCount, metadata }`
+- [x] PC 编辑器 50/50 分屏（源码+行号/预览），移动端编辑/预览 Tab + 浮动底部工具栏
+- [x] Markdown 编辑后预览实时重新渲染，字数统计与保存状态更新，工具栏可插入语法
+- [x] 导出视图提供 8 种格式卡片单选（Markdown/HTML/纯文本/DOCX/EPUB/普通 PDF/可搜索扫描 PDF/ClearScan）与导出方式单选、文件名输入
+- [x] Markdown/HTML/纯文本/DOCX/普通 PDF 为前端真实生成的可下载文件；EPUB/可搜索扫描 PDF/ClearScan 为占位产物并标注「模拟产物」
+- [x] 确认导出能触发下载或复制到剪贴板，移动端为底部固定全宽 CTA
+- [x] 静态卡片/表格/面板仅用边框无阴影，弹窗/抽屉/Toast 浮层阴影 alpha ≤0.08
+- [x] auth→dashboard→upload→editor→export 全流程可跑通，返回/登出/重试路径正确
+- [x] 本地静态服务器自检：无控制台报错，Lucide 图标正常渲染
