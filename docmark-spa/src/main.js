@@ -2,11 +2,11 @@
 import * as store from './store.js';
 import * as router from './router.js';
 import * as shell from './shell.js';
-import { mount as authView } from './views/auth.js';
-import { mount as dashboardView } from './views/dashboard.js';
-import { mount as uploadView } from './views/upload.js';
-import { mount as editorView } from './views/editor.js';
-import { mount as exportView } from './views/export.js';
+import * as authView from './views/auth.js';
+import * as dashboardView from './views/dashboard.js';
+import * as uploadView from './views/upload.js';
+import * as editorView from './views/editor.js';
+import * as exportView from './views/export.js';
 
 const views = {
   auth: authView,
