@@ -1,0 +1,44 @@
+# Tasks
+
+- [x] Task 1: 搭建 SPA 骨架与设计令牌
+  - [x] SubTask 1.1: 创建 `/workspace/docmark-spa/index.html` 单入口，引入 CDN（Tailwind v4 browser、Lucide、marked、jspdf、docx）与 `src/main.js` ES 模块
+  - [x] SubTask 1.2: 落地设计稿 `colors_and_type.css` 的全部 CSS 变量与排版类到全局样式，确保色彩/圆角/字体/间距/阴影策略一致
+  - [x] SubTask 1.3: 实现 Hash 路由（`router.js`）：注册 5 个路由、路由守卫（未登录跳 auth）、切换时滚动顶部与重新渲染 Lucide 图标
+- [x] Task 2: 应用外壳与响应式适配
+  - [x] SubTask 2.1: 实现 `shell.js`：≥1024px 渲染 240px 侧边栏（Logo+导航+用户区+登出），<1024px 渲染底部 5 项 Tab；auth 路由不渲染外壳
+  - [x] SubTask 2.2: 实现视口断点检测（resize 监听），外壳与页面组件在断点变化时重渲染
+- [x] Task 3: 内存 Mock 数据与 OCR 服务
+  - [x] SubTask 3.1: 实现 `store.js`：会话登录态、文件列表、KPI、当前编辑文件/Markdown、文件队列等内存状态与订阅刷新机制
+  - [x] SubTask 3.2: 实现 `ocrService.js`：`recognize(file)` 模拟 REST 调用，1.5–3s 延迟，按文件名/类型从样例库返回 `{ markdown, text, pageCount, metadata }`
+- [x] Task 4: 登录/注册视图（auth）
+  - [x] SubTask 4.1: 实现 `views/auth.js`：居中卡片、Logo、登录/注册 Tab 切换、邮箱+密码(+确认密码)表单、忘记密码链接
+  - [x] SubTask 4.2: 密码可见性切换、4 段密码强度条与文字标签、社交登录按钮（Google/Microsoft，点击后直接登录）
+  - [x] SubTask 4.3: 表单非空校验，提交后置登录态并跳 `#/dashboard`；移动端全宽卡片与 44px 触摸目标
+- [x] Task 5: 仪表盘视图（dashboard）
+  - [x] SubTask 5.1: 实现 `views/dashboard.js`：顶部栏（标题+搜索框+新建转换按钮）、3 格 KPI 指标条（来自 store）
+  - [x] SubTask 5.2: 表格视图（PC）列：复选框/文件名+图标/类型/大小/状态/修改时间/操作；移动端改为堆叠卡片列表、KPI 横向滚动
+  - [x] SubTask 5.3: 表格/卡片视图切换、搜索过滤文件名、行内操作（编辑→editor、下载、删除、重试）；登出按钮→auth
+- [x] Task 6: 上传与转换视图（upload）
+  - [x] SubTask 6.1: 实现 `views/upload.js`：返回链接、标题、虚线拖放区（点击+拖放）、格式提示
+  - [x] SubTask 6.2: 文件队列卡片（图标+名称+大小+状态+删除）、清空、继续添加；移动端全宽与 44px 目标
+  - [x] SubTask 6.3: 「开始转换」调用 `ocrService.recognize`，逐文件进度条模拟，完成写入 store 并跳 `#/editor`
+- [x] Task 7: 编辑器视图（editor）
+  - [x] SubTask 7.1: 实现 `views/editor.js`：顶部工具栏（返回、文件名、保存状态、格式按钮组、导出按钮）
+  - [x] SubTask 7.2: PC 50/50 分屏（左 Markdown textarea+行号、右预览/对照 Tab）；移动端编辑/预览 Tab 全宽切换+浮动底部工具栏
+  - [x] SubTask 7.3: 用 marked 实时渲染预览、字数统计、工具栏按钮插入 Markdown 语法、底部状态栏
+- [x] Task 8: 导出视图（export，扩展格式）
+  - [x] SubTask 8.1: 实现 `views/export.js`：文件预览卡、8 种格式卡片单选（Markdown/HTML/纯文本/DOCX/EPUB/普通 PDF/可搜索扫描 PDF/ClearScan）、导出方式单选、文件名输入
+  - [x] SubTask 8.2: 实现 `converters.js`：Markdown/HTML/纯文本（真实）、DOCX（docx 库）、普通 PDF（jspdf）真实生成；EPUB/可搜索扫描 PDF/ClearScan 生成占位产物并标注「模拟产物」
+  - [x] SubTask 8.3: 确认导出触发下载或复制到剪贴板；移动端底部固定 CTA 与全宽布局
+- [x] Task 9: 端到端联调与视觉核对
+  - [x] SubTask 9.1: 跑通 auth→dashboard→upload→editor→export 全流程，验证返回/登出/重试路径
+  - [x] SubTask 9.2: PC 与移动端断点切换核对视觉与交互，对照设计稿检查色彩/边框/阴影/触摸目标
+  - [x] SubTask 9.3: 启动本地静态服务器自检页面无控制台报错，Lucide 图标正常渲染
+
+# Task Dependencies
+- Task 2 依赖 Task 1（外壳需路由与样式）
+- Task 3 依赖 Task 1（store/ocrService 为基础模块）
+- Task 4–8 依赖 Task 2 与 Task 3（视图需外壳、store、OCR 服务）
+- Task 8 的 converters 依赖 marked/jspdf/docx CDN 可用
+- Task 9 依赖 Task 1–8 全部完成
+- Task 4 / Task 5 / Task 6 / Task 7 / Task 8 视图彼此独立，可在外壳与基础模块就绪后并行实现
